@@ -24,18 +24,10 @@ module.exports = {
   loading: { color: '#fff' },
   css: ['./styles/global.css'],
   plugins: [],
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
-  ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {},
+  modules: ['@nuxtjs/axios'],
+  axios: {
+    proxy: true,
+  },
   serverMiddleware: [
     { path: '/api/palette', handler: '~/api/palette-picker.js' },
   ],
