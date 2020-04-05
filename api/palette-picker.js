@@ -10,9 +10,9 @@ export default async function(req, res, next) {
       model: 'default',
     });
     const colors = result.map(toHex);
-    return res.json({ colors });
+    return res.end(JSON.stringify({ colors }));
   } catch (err) {
     logger.error(err);
-    return res.status(400).json({ error: err.toString() });
+    return res.end(JSON.stringify({ error: err.toString() }));
   }
 }
